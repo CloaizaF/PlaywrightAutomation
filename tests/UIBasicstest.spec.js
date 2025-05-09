@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
 
-test('Broswer Context Test', async ({ browser }) => {
+test.only('Broswer Context Test', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
+    page.route('**/*.css', (route) => { route.abort(); });
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     console.log(await page.title());
     const username = page.locator('#username');
