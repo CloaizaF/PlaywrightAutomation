@@ -3,7 +3,9 @@ const { test, expect } = require('@playwright/test');
 test.only('Broswer Context Test', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
-    page.route('**/*.css', (route) => { route.abort(); });
+    //page.route('**/*.{jpg, png, jpeg}', (route) => { route.abort(); }); // To abort network calls for images
+    page.on('request', request => console.log(request.url())); // To log all network requests urls
+    page.on('response', response => console.log(response.url(), response.status())); // To log all network responses status codes
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     console.log(await page.title());
     const username = page.locator('#username');
