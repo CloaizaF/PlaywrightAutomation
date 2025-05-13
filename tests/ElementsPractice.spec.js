@@ -24,7 +24,6 @@ test('Elements Validations', async ({ page }) => {
 
 });
 
-
 test('Screenshot Test', async ({ page }) => {
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
     await expect(page.locator('#displayed-text')).toBeVisible();
