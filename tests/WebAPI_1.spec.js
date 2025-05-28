@@ -11,7 +11,7 @@ test.beforeAll(async () => {
     response = await apiUtils.createOrder(orderPayload);
 });
 
-test('Client App Validation with Injected Token', async ({ page }) => {
+test('@API Client App Validation with Injected Token', async ({ page }) => {
     page.addInitScript(value => {
         window.localStorage.setItem('token', value);
     }, response.token);

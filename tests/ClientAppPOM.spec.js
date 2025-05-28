@@ -4,7 +4,7 @@ const { POManager } = require('../page-objects/POManager');
 const testData = JSON.parse(JSON.stringify(require('../tests/utils/placeorderTestData.json')));
 
 for (const data of testData) {
-    test(`Client App Validation for ${data.productName}`, async ({ page }) => {
+    test(`@Web Client App Validation for ${data.productName}`, async ({ page }) => {
         const poManager = new POManager(page);
         await page.goto('https://rahulshettyacademy.com/client');
         const loginPage = poManager.getLoginPage();

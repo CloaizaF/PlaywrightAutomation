@@ -1,6 +1,9 @@
 const { test, expect } = require('@playwright/test');
 
-test('Elements Validations', async ({ page }) => {
+//test.describe.configure({ mode: 'parallel' });
+test.describe.configure({ mode: 'serial' });
+
+test('@Web Elements Validations', async ({ page }) => {
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
     //await page.goto('http://google.com/');
     //await page.goBack();
@@ -35,7 +38,7 @@ test('Screenshot Test', async ({ page }) => {
     await page.locator('#confirmbtn').click();
 });
 
-test.only('Visual Comparison Test', async ({ page }) => {
+test('Visual Comparison Test', async ({ page }) => {
     await page.goto('https://google.com/');
     expect(await page.screenshot()).toMatchSnapshot('landing.png');
 });

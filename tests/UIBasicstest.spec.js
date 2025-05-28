@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('Broswer Context Test', async ({ browser }) => {
+test.only('@Web Broswer Context Test', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     //page.route('**/*.{jpg, png, jpeg}', (route) => { route.abort(); }); // To abort network calls for images
@@ -25,7 +25,7 @@ test.only('Broswer Context Test', async ({ browser }) => {
     console.log(allTitles);
 });
 
-test('UI Controls Test', async ({ page }) => {
+test('@Web UI Controls Test', async ({ page }) => {
     await page.goto('https://rahulshettyacademy.com/loginpagePractise/');
     const documentLink = page.locator('[href*="documents-request"]');
     const username = page.locator('#username');

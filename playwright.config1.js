@@ -3,6 +3,8 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  retries: 1,
+  workers: 3,
   timeout: 30 * 1000,
   expect: {
     timeout: 5000,
@@ -26,9 +28,10 @@ export default defineConfig({
         headless: false,
         screenshot: 'on',
         trace: 'on',
-        //viewport: { width: 720, height: 720 },
+        viewport: { width: 720, height: 720 },
         ignoreHTTPSErrors: true, // Ignore HTTPS errors
         permissions: ['geolocation'], // Allow geolocation permissions
+        video: 'retain-on-failure'
       },
     }
   ]

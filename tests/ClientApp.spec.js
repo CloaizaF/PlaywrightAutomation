@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Client App Validation', async ({ page }) => {
+test.skip('Client App Validation', async ({ page }) => {
     const email = "loaizafcamilo@gmail.com";
     const products = page.locator('.card-body');
     const productName = 'ZARA COAT 3';

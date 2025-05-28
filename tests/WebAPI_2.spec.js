@@ -14,7 +14,7 @@ test.beforeAll(async ({ browser }) => {
     webContext = await browser.newContext({ storageState: 'state.json' });
 });
 
-test('Client App Validation', async () => {
+test('@API Client App Validation', async () => {
     const page = await webContext.newPage();
     await page.goto('https://rahulshettyacademy.com/client');
     const products = page.locator('.card-body');
