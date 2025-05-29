@@ -1,7 +1,7 @@
 const { test, expect } = require('@playwright/test');
-const { customtest } = require('../tests/utils/test-base');
+const { customtest } = require('../utils/test-base');
 const { POManager } = require('../page-objects/POManager');
-const testData = JSON.parse(JSON.stringify(require('../tests/utils/placeorderTestData.json')));
+const testData = JSON.parse(JSON.stringify(require('../utils/placeorderTestData.json')));
 
 for (const data of testData) {
     test(`@Web Client App Validation for ${data.productName}`, async ({ page }) => {
