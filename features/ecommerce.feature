@@ -1,5 +1,6 @@
 Feature: E-commerce Platform
 
+    @Regression
     Scenario: Placing the Order
         Given a login to Ecommerce application with "loaizafcamilo@gmail.com" and "testing11%"
         When add product "ZARA COAT 3" to Cart

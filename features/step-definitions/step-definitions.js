@@ -33,3 +33,17 @@ Then('verify order is present in the order history', async function () {
     await this.ordersHistoryPage.searchOrderAndSelect(this.orderId);
     expect(this.orderId.includes(await this.ordersHistoryPage.getOrderId())).toBeTruthy();
 });
+
+Given('a login to Ecommerce2 application with {string} and {string}', async function (usernameToEnter, passwordToEnter) {
+    const username = this.page.locator('#username');
+    const signInBtn = this.page.locator('#signInBtn');
+    await this.page.goto('https://rahulshettyacademy.com/loginpagePractise/');
+    await username.type(usernameToEnter);
+    await this.page.locator('#password').type(passwordToEnter);
+    await signInBtn.click();
+});
+
+Then('verify error message {string} is displayed', async function (errorMessage) {
+    console.log(await this.page.locator("[style*='block']").textContent());
+    await expect(this.page.locator("[style*='block']")).toContainText(errorMessage);
+});
